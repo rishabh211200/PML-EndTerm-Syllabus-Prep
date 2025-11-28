@@ -191,3 +191,128 @@ plt.boxplot(df['salary'])
 plt.title('Boxplot of Salary')
 plt.ylabel('Salary')
 plt.show()
+#Output : BoxPlotOfSalary.png
+
+# ⭐ PROFESSIONAL / EXAM-STYLE INTERPRETATION OF THE BOXPLOT
+# ✔ 1. Median salary ~70k
+#
+# “The median salary is around ₹70,000, indicating the central tendency of the distribution.”
+#
+# ✔ 2. No outliers present
+#
+# “There are no salary values lying beyond the whiskers, confirming that the distribution has no extreme outliers after cleaning.”
+#
+# (Ye line examiner ko show karti hai ki tum cleaning samajh gaye.)
+#
+# ✔ 3. Spread of data (IQR reasoning)
+#
+# “The interquartile range (IQR) spans roughly from ₹55,000 to ₹90,000, showing considerable variation among employees.”
+#
+# ✔ 4. Skewness hint
+#
+# “The upper whisker is slightly longer, hinting at mild right-skewness in the salary distribution.”
+#
+# ⭐ FINAL EXAM-LINE (Perfect Copy-Paste Version)
+#
+# “The boxplot shows a median salary of around ₹70,000 with no visible outliers. The IQR ranges between approximately ₹55k and ₹90k, indicating moderate spread. The slightly longer upper whisker suggests mild right-skewness.”
+#
+# Tumne jo bola → 100% correct.
+# Mainne usko exam-shine polish kar diya. ✔
+
+
+
+#HeatMap
+
+import seaborn as sns
+plt.figure(figsize=(6,5))
+sns.heatmap(df[['age','salary','experience','purchased']].corr(), annot=True, cmap='coolwarm')
+plt.title("Correlation Heatmap")
+plt.show()
+#Output : HeatMap.png
+
+#Comments:
+
+# ⭐ HOW TO READ A HEATMAP (2-minute rule)
+#
+# Heatmap shows correlation between variables.
+#
+# Correlation values range from:
+#
+# ✔ +1 → Strong positive
+# ✔ 0 → No relation
+# ✔ -1 → Strong negative
+#
+# Bright Red = High positive
+# Bright Blue = High negative
+# Light colors = weak/zero relation
+#
+# Bas.
+#
+# ⭐ Your Heatmap (Simplified Summary)
+#
+# I’m going to read this heatmap for you.
+#
+# ✔ salary ↔ purchased → 0.79 (strong positive)
+#
+# ⭐ Bohot important.
+#
+# Meaning:
+# Jinke salary high hai, unka purchased = 1 hone ka chance high.
+#
+# “Higher salary people are more likely to purchase.”
+#
+# ✔ age ↔ salary → -0.11 (very weak negative)
+#
+# Meaning:
+# Age ka salary se almost koi relation nahi.
+# Kabhi thoda negative, but almost zero.
+#
+# “Age does not predict salary.”
+#
+# ✔ age ↔ experience → 0.24 (weak positive)
+#
+# Makes sense:
+#
+# Jaise jaise age badhti hai → experience thoda badhta hai.
+# Weak relation dikhta hai.
+#
+# ✔ experience ↔ purchased → 0.03 (zero relation)
+#
+# Meaning:
+# Experience ka purchasing decision par almost koi farak nahi.
+#
+# ✔ salary ↔ experience → 0.09 (zero relation)
+#
+# Meaning:
+# Experience doesn’t determine salary in this dataset (random data).
+# Not useful.
+#
+# ✔ age ↔ purchased → -0.19 (weak negative)
+#
+# Meaning:
+# Older people slightly less likely to purchase — but too weak to be meaningful.
+#
+# ⭐ NOW THE EXAM-STYLE INTERPRETATION (Perfect 3 lines)
+#
+# “Correlation heatmap shows a strong positive correlation (0.79) between salary and purchased, indicating higher salary individuals are more likely to purchase. Age and salary have almost no correlation (-0.11), and experience also shows weak relationships with other variables. Overall, salary is the most influential factor for predicting purchasing behavior.”
+#
+# YE PERFECT ANSWER HAI ✔
+# Examiner ko bilkul impress karega.
+#
+# ⭐ MASTER TRICK TO READ ANY HEATMAP
+#
+# Sabse high positive value (except diagonal) → important
+#
+# Sabse high negative value → important
+#
+# Baaki sab ~0 → ignore
+#
+# Graph ka conclusion → “this feature impacts the target the most”
+#
+# This heatmap me:
+#
+# salary → most impactful
+#
+# experience → useless
+#
+# age → almost useless
