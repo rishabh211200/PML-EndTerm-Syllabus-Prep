@@ -183,3 +183,11 @@ plt.show()
 #
 # “There is no extreme outlier present after cleaning (500k was removed earlier).”
 
+
+
+
+#BoxPlot
+plt.boxplot(df['salary'])
+plt.title('Boxplot of Salary')
+plt.ylabel('Salary')
+plt.show()
