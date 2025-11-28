@@ -60,28 +60,46 @@ df['is_high_salary'] = df['salary'].apply(lambda x: x > 70000)
 
 # we created 2 Dataframes just for merging example:
 
-df1 = pd.DataFrame({
-    'id': [1,2,3],
-    'name': ['A','B','C']
-})
+# df1 = pd.DataFrame({
+#     'id': [1,2,3],
+#     'name': ['A','B','C']
+# })
+#
+# df2 = pd.DataFrame({
+#     'id': [1,2,4],
+#     'salary': [50000, 75000, 90000]
+# })
+#
+# merged = pd.merge(df1, df2, on='id', how='inner')
+# print("Inner join:")
+# print(merged)
+#
+# merged_left = pd.merge(df1, df2, on='id', how='left')
+# print("\nLeft join:")
+# print(merged_left)
+#
+# merged_right = pd.merge(df1, df2, on='id', how='right')
+# print("\nRight join:")
+# print(merged_right)
+#
+# merged_outer = pd.merge(df1, df2, on='id', how='outer')
+# print("Outer join:")
+# print(merged_outer)
 
-df2 = pd.DataFrame({
-    'id': [1,2,4],
-    'salary': [50000, 75000, 90000]
-})
 
-merged = pd.merge(df1, df2, on='id', how='inner')
-print("Inner join:")
-print(merged)
+print("Value counts:")
+print(df['city'].value_counts())
 
-merged_left = pd.merge(df1, df2, on='id', how='left')
-print("\nLeft join:")
-print(merged_left)
+print("\nUnique values:")
+print(df['city'].unique())
 
-merged_right = pd.merge(df1, df2, on='id', how='right')
-print("\nRight join:")
-print(merged_right)
+print("\nCount of unique values:")
+print(df['city'].nunique())
 
-merged_outer = pd.merge(df1, df2, on='id', how='outer')
-print("Outer join:")
-print(merged_outer)
+print("\nSorted by salary descending:")
+print(df.sort_values('salary', ascending=False))
+
+#Categorical Encoding
+
+df['city_code'] = df['city'].astype('category').cat.codes
+print(df[['city', 'city_code']])
